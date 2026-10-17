@@ -6,7 +6,7 @@ A hands-on embedded systems project exploring quadcopter assembly, Arduino progr
 **Platform:** Arduino Uno · C++ · Arduino IDE  
 **Documented progress:** Hardware assembly, historical sketch compilation output, and sensor readings in Serial Monitor.
 
-[العربية](README.ar.md) · [Hardware](docs/HARDWARE.md) · [Development evidence](docs/DEVELOPMENT.md) · [Bench-test guide](docs/BENCH_TEST.md)
+[العربية](README.ar.md) · [Hardware](docs/HARDWARE.md) · [Development evidence](docs/DEVELOPMENT.md) · [Project review](docs/REVIEW.ar.md) · [Bench-test guide](docs/BENCH_TEST.md)
 
 ![Quadcopter with radio transmitter](images/quadcopter-overview.jpeg)
 
@@ -43,12 +43,6 @@ The assembled four-arm frame with motors, propellers, central electronics, and a
 
 ![Quadcopter overview](images/quadcopter-overview.jpeg)
 
-### Controller and wiring detail
-
-A close-up of the central Arduino board, jumper wiring, indicator LEDs, and motor wiring. Exact sensor and receiver models remain to be documented.
-
-![Controller and wiring detail](images/controller-wiring-detail.jpeg)
-
 ### Throttle code and build output
 
 The displayed sketch reads a throttle pulse, limits its command range, and writes the same pulse command to four ESC channels. The IDE reports 3,620 bytes of program storage and 262 bytes of global-variable memory for this historical sketch.
@@ -70,7 +64,7 @@ Serial Monitor displays changing AcX, AcY, AcZ, GyX, GyY, and GyZ values. The im
 | `docs/DEVELOPMENT.md` | Explanation of the photographed code and sensor output |
 | `docs/BENCH_TEST.md` | Setup, serial commands, and testing limitations |
 | `docs/ROADMAP.md` | Remaining development milestones |
-| `images/` | Four project photographs |
+| `images/` | Three project photographs |
 
 ## Getting started
 

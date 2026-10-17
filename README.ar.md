@@ -6,7 +6,7 @@
 **التقنيات:** Arduino Uno · C++ · Arduino IDE  
 **التقدم الموثّق:** تجميع العتاد، ونتيجة تجميع كود سابق، وعرض قراءات الحساس في Serial Monitor.
 
-[English](README.md) · [المكونات والتوصيلات](docs/HARDWARE.md) · [شرح التطوير](docs/DEVELOPMENT.md)
+[English](README.md) · [المكونات والتوصيلات](docs/HARDWARE.md) · [شرح التطوير](docs/DEVELOPMENT.md) · [مراجعة المشروع](docs/REVIEW.ar.md)
 
 ![الدرون وجهاز التحكم](images/quadcopter-overview.jpeg)
 
@@ -36,12 +36,6 @@
 الهيكل الرباعي بعد التجميع، مع المحركات والمراوح والإلكترونيات المركزية وجهاز تحكم يحمل علامة FlySky.
 
 ![نظرة عامة على الدرون](images/quadcopter-overview.jpeg)
-
-### تفاصيل لوحة التحكم والتوصيلات
-
-لقطة مقرّبة للوحة Arduino وأسلاك التوصيل ومؤشرات الإضاءة وتوصيلات المحركات. موديلات الحساس والمستقبل تحتاج إلى توثيق.
-
-![تفاصيل لوحة التحكم والتوصيلات](images/controller-wiring-detail.jpeg)
 
 ### كود الثروتل ونتيجة التجميع
 

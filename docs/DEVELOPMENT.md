@@ -1,6 +1,6 @@
 # Development evidence
 
-This document describes the four project photographs supplied by the project owner. Photographs record development stages; they are not substitutes for complete firmware or repeatable test logs.
+This document describes the three project photographs supplied by the project owner. Photographs record development stages; they are not substitutes for complete firmware or repeatable test logs.
 
 ## Assembly and electronics
 
