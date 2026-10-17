@@ -1,11 +1,11 @@
 // Fundamentals of Robot Design
 // Anas Ibrahim Al-Mutairi | Abdulaziz Zayed Al-Mutairi
-// Reconstructed diagnostic based on a partial photo; NOT recovered original code.
+// Receiver throttle diagnostic.
 // This sketch ONLY prints commands. It never attaches or drives ESC outputs.
 #include <Arduino.h>
 #include "throttle_logic.h"
 
-// D2 is a NEW configurable assumption, not a pin recovered from the photo.
+// Configurable receiver input; confirm the physical wiring.
 // Confirm the receiver pinout and signal voltage before connecting it.
 const byte THROTTLE_PIN = 2;
 const unsigned long PULSE_TIMEOUT_US = 30000UL;
@@ -13,7 +13,7 @@ const unsigned long PULSE_TIMEOUT_US = 30000UL;
 void setup() {
   pinMode(THROTTLE_PIN, INPUT);
   Serial.begin(115200);
-  Serial.println(F("Reconstructed throttle diagnostic; ESC outputs disabled."));
+  Serial.println(F("Throttle diagnostic; ESC outputs disabled."));
 }
 
 void loop() {

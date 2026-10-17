@@ -2,7 +2,7 @@
 
 ## Scope and prerequisites
 
-This newly prepared sketch is for propeller-free bench checks only. Remove every propeller, secure the frame, keep the battery disconnect accessible, and verify ESC compatibility from its manual. Do not infer flight readiness from a spinning motor.
+This sketch is for propeller-free bench checks only. Remove every propeller, secure the frame, keep the battery disconnect accessible, and verify ESC compatibility from its manual. Do not infer flight readiness from a spinning motor.
 
 Default pins: D3, D5, D6, D9. Default stop/arming signal: 1000 us. Default test: 1100 us for at most 2000 ms. These are assumptions that must match your ESC. The example does not perform automatic ESC calibration or maximum-throttle sweeps.
 
@@ -25,14 +25,6 @@ Default pins: D3, D5, D6, D9. Default stop/arming signal: 1000 us. Default test:
 | Any other non-whitespace character | Stop and disarm |
 
 A pending armed session expires after ten seconds. Serial disconnection during a running test does not prevent the two-second timer from ending the test while the program is running normally. This is a software timer, not an independent hardware watchdog; a hang or power fault can defeat it. A low test pulse may not start every motor; do not blindly increase it.
-
-## Troubleshooting
-
-- `include does not name a type`: ensure the directive is exactly `#include <Servo.h>`, with the leading `#`.
-- `Servo does not name a type`: check the include directive and installed Servo library, then compile again.
-- `esc... was not declared`: fix the first compiler error before later cascading messages.
-- Upload failure: check board selection, port, USB cable, and whether another program owns the port.
-- Beeping or no rotation: disconnect power, check the ESC manual, input protocol, arming requirements, and supply. No rotation is not proof of a code fault.
 
 ## Evidence log
 

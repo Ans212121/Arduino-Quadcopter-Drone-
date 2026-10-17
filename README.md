@@ -1,110 +1,71 @@
 # Arduino Quadcopter Drone
-
-A course project for **Fundamentals of Robot Design**, exploring quadcopter assembly, Arduino programming, ESC throttle signals, and inertial sensor data.
-
-**Course:** Fundamentals of Robot Design
+### Fundamentals of Robot Design
 
 | Team member | الاسم |
 | --- | --- |
 | Anas Ibrahim Al-Mutairi | أنس إبراهيم المطيري |
 | Abdulaziz Zayed Al-Mutairi | عبدالعزيز زايد المطيري |
 
+[العربية](README.ar.md)
 
-**Platform:** Arduino Uno · C++ · Arduino IDE  
-**Documented progress:** Hardware assembly, historical sketch compilation output, and sensor readings in Serial Monitor.
+![Quadcopter platform](images/quadcopter-overview.jpeg)
 
-[العربية](README.ar.md) · [Course project overview](docs/PROJECT_OVERVIEW.md) · [Hardware](docs/HARDWARE.md) · [Development evidence](docs/DEVELOPMENT.md) · [Project review](docs/REVIEW.ar.md) · [Bench-test guide](docs/BENCH_TEST.md)
+## Project overview
 
-![Quadcopter with radio transmitter](images/quadcopter-overview.jpeg)
+An educational quadcopter project covering mechanical assembly, Arduino integration, motor-control signal experiments, and inertial sensor diagnostics. The platform uses a four-arm frame with four motors and centrally mounted electronics.
 
-## Project objectives
+## Objectives
 
-- Assemble a four-motor robotic platform and document its physical components.
-- Explore the relationship between an embedded controller, ESC signals, and actuators.
-- Inspect acceleration and gyroscope data during development.
-- Apply incremental testing and distinguish observed results from proposed features.
+- Integrate mechanical components, actuators, and an embedded controller.
+- Explore ESC pulse commands and receiver throttle signals.
+- Observe acceleration and gyroscope data through serial diagnostics.
+- Validate individual functions before combining them into a control system.
 
-## About the project
+## Software
 
-This educational project connects mechanical assembly with embedded programming. It documents a four-motor drone platform, central Arduino electronics, radio-control hardware, throttle-control experiments, and acceleration/gyroscope data displayed through serial diagnostics.
-
-The project demonstrates the workflow of assembling hardware, developing small diagnostic sketches, inspecting compiler output, and observing sensor data before advancing toward flight control.
-
-## Documented work
-
-| Area | Evidence in the project photos |
+| Module | Function |
 | --- | --- |
-| Hardware assembly | Red-and-white quadcopter frame, four motors, propellers, and central electronics |
-| Radio hardware | FlySky-branded transmitter alongside the assembled frame |
-| Arduino integration | Board mounted on the frame with USB and jumper connections |
-| Throttle programming | Code reads a pulse and writes a constrained command to four ESC channels |
-| Historical compilation | Arduino IDE reports program and global-variable memory usage |
-| Sensor diagnostics | Serial Monitor shows acceleration and gyroscope axis values |
+| [ESC bench test](firmware/esc_bench_test/esc_bench_test.ino) | Tests one ESC channel at a time using serial commands |
+| [Throttle diagnostic](firmware/throttle_diagnostic/throttle_diagnostic.ino) | Reads a throttle pulse and prints a limited command; does not drive motors |
+| [Throttle logic](firmware/throttle_diagnostic/throttle_logic.h) | Accepts 900–2100 us and limits valid commands to 1000–1500 us |
+| [Sensor output](firmware/sensor_output/sensor_output.h) | Formats six sensor-axis values supplied by a sensor driver |
+| [Logic tests](tests/throttle_logic_test.cpp) | Checks timeout, input boundaries, and command limits |
 
-The historical throttle sketch and sensor sketch are visible only in photographs; their complete original source files have not been recovered. The supplied `esc_bench_test.ino` is a separately prepared example, not a transcription of either sketch.
+The throttle diagnostic uses D2 as a configurable input assumption. The ESC bench example uses D3, D5, D6, and D9. Confirm all connections against the actual hardware. The sensor-output helper requires a hardware-specific driver; it does not initialize or acquire sensor data.
 
-## Reconstructed files
+## Development results
 
-The original sketches were deleted, according to the team. A new [throttle diagnostic](firmware/throttle_diagnostic/throttle_diagnostic.ino) reconstructs the photographed input-validation and command-limiting logic. It prints commands only and does not drive motors. A [sensor-output helper](firmware/sensor_output/sensor_output.h) recreates the six-label serial format; sensor initialization and acquisition still require the actual sensor model.
+The project photographs document assembly, compilation output from a throttle sketch, and sensor-axis values displayed in Serial Monitor. The pictured build reports 3,620 bytes of program storage and 262 bytes of global-variable memory. These figures apply to the pictured sketch, not the repository examples.
 
-The throttle logic passed 11 host boundary tests. The new diagnostic and output helper passed host syntax checks with simplified Arduino interfaces; actual Uno builds and hardware tests remain pending. See [reconstruction notes](docs/RECONSTRUCTION.ar.md).
+### Throttle programming
 
-## Software in this repository
+![Throttle code and compilation output](images/throttle-code-build.jpeg)
 
-The [ESC bench-test example](firmware/esc_bench_test/esc_bench_test.ino) supports manual arming, selection of one motor channel, and a timed return to minimum throttle. The proposed signal pins are D3, D5, D6, and D9; confirm actual wiring before use.
+### Sensor diagnostics
 
-The pictured throttle sketch sends the same command to all four channels. This does not establish attitude stabilization or independent flight-control mixing. Stable flight, receiver operation, calibrated sensor performance, and autonomous control are not established by these photos.
+![Acceleration and gyroscope values](images/imu-serial-readings.jpeg)
 
-## Development gallery
+The pictured values are uncalibrated observations; physical units and sensor scaling are not established.
 
-### Quadcopter overview
+## Setup and testing
 
-The assembled four-arm frame with motors, propellers, central electronics, and a FlySky-branded radio transmitter.
+See [hardware connections](docs/HARDWARE.md) and the [bench-test guide](docs/BENCH_TEST.md). Remove all propellers before powered motor testing.
 
-![Quadcopter overview](images/quadcopter-overview.jpeg)
+The throttle logic passed 11 boundary cases on a host computer. The diagnostic and sensor helper passed host C++ syntax checks with simplified Arduino interfaces. Actual Arduino Uno builds and hardware validation of the supplied examples remain pending.
 
-### Throttle code and build output
+Run the logic tests from the repository root:
 
-The displayed sketch reads a throttle pulse, limits its command range, and writes the same pulse command to four ESC channels. The IDE reports 3,620 bytes of program storage and 262 bytes of global-variable memory for this historical sketch.
+```bash
+g++ -std=c++11 -Wall -Wextra -Werror tests/throttle_logic_test.cpp -o /tmp/drone-throttle-test
+/tmp/drone-throttle-test
+```
 
-![Throttle code and build output](images/throttle-code-build.jpeg)
+## Current scope
 
-### Sensor readings in Serial Monitor
-
-Serial Monitor displays changing AcX, AcY, AcZ, GyX, GyY, and GyZ values. The image documents sensor-data output; units, scale, calibration, and sensor model are not established by the screenshot.
-
-![Sensor readings in Serial Monitor](images/imu-serial-readings.jpeg)
-
-## Repository guide
-
-| Path | Contents |
-| --- | --- |
-| `firmware/esc_bench_test/` | New example for individual ESC bench tests |
-| `docs/PROJECT_OVERVIEW.md` | Course context, system structure, workflow, and evaluation criteria |
-| `docs/HARDWARE.md` | Components and proposed signal connections |
-| `docs/DEVELOPMENT.md` | Explanation of the photographed code and sensor output |
-| `docs/BENCH_TEST.md` | Setup, serial commands, and testing limitations |
-| `docs/ROADMAP.md` | Remaining development milestones |
-| `images/` | Three project photographs |
-
-## Getting started
-
-1. Remove every propeller and secure the frame before powered bench testing.
-2. Confirm ESC protocol, voltage ratings, signal range, and wiring against its manual.
-3. Open `firmware/esc_bench_test/esc_bench_test.ino` in Arduino IDE.
-4. Select Arduino Uno and the correct port; install the official Servo library if needed.
-5. Verify and upload with motor power disconnected, then follow the [bench-test procedure](docs/BENCH_TEST.md).
-
-## Validation and next steps
-
-The new bench example passed a host C++ syntax check using simplified Arduino/Servo stubs. It has not been built with the actual Arduino toolchain or physically tested during repository preparation. The historical build statistics in the gallery apply to the photographed sketch only.
-
-Next steps include recovering the original firmware, identifying component models, validating receiver and sensor behavior, and developing and testing an attitude-control system. See the [roadmap](docs/ROADMAP.md).
+This repository provides component-level diagnostics. It does not implement sensor acquisition, attitude estimation, PID stabilization, or flight-control motor mixing. Stable flight has not been verified.
 
 ## References
 
-- [Official Arduino Servo library](https://docs.arduino.cc/libraries/servo/)
-- [Official Servo source](https://github.com/arduino-libraries/Servo)
-- [Arduino Uno Rev3 documentation](https://docs.arduino.cc/hardware/uno-rev3/)
-
-No third-party library source is bundled. No software license has been assigned; confirm ownership and any team/course requirements before selecting one.
+- [Arduino Uno](https://docs.arduino.cc/hardware/uno-rev3/)
+- [Servo library](https://github.com/arduino-libraries/Servo)
+- [pulseIn reference](https://docs.arduino.cc/language-reference/en/functions/advanced-io/pulseIn/)
