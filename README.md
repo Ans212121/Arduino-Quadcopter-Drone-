@@ -43,18 +43,6 @@ The assembled four-arm frame with motors, propellers, central electronics, and a
 
 ![Quadcopter overview](images/quadcopter-overview.jpeg)
 
-### Workbench assembly
-
-A second view of the red-and-white airframe and transmitter during the hardware integration stage.
-
-![Workbench assembly](images/quadcopter-workbench.jpeg)
-
-### USB development setup
-
-The Arduino board is mounted at the center of the frame and connected to a laptop by USB for development.
-
-![USB development setup](images/arduino-usb-setup.jpeg)
-
 ### Controller and wiring detail
 
 A close-up of the central Arduino board, jumper wiring, indicator LEDs, and motor wiring. Exact sensor and receiver models remain to be documented.
@@ -82,7 +70,7 @@ Serial Monitor displays changing AcX, AcY, AcZ, GyX, GyY, and GyZ values. The im
 | `docs/DEVELOPMENT.md` | Explanation of the photographed code and sensor output |
 | `docs/BENCH_TEST.md` | Setup, serial commands, and testing limitations |
 | `docs/ROADMAP.md` | Remaining development milestones |
-| `images/` | Six updated project photographs |
+| `images/` | Four project photographs |
 
 ## Getting started
 
