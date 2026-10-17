@@ -1,0 +1,12 @@
+# Local build/editor files
+build/
+*.elf
+*.hex
+*.o
+*.a
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.env
+.env.*
