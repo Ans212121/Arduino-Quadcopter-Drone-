@@ -16,3 +16,8 @@ These are planned tasks, not implemented capabilities.
 - [ ] Establish a controlled flight-test plan under applicable local requirements.
 
 Before claiming successful flight, add actual test logs or a video and describe conditions and limitations. Do not add invented performance metrics or describe planned autonomous functions as completed.
+
+
+## Source reconstruction update
+
+The team reports the original sketches were deleted. A new throttle diagnostic now reconstructs the visible pulse-validation logic without driving ESC outputs. A separate helper recreates the sensor print format; it does not read a sensor. Eleven host throttle boundary tests passed, along with host syntax checks for the diagnostic/helper using simplified Arduino interfaces. Original source recovery, actual Uno builds, sensor identification, and hardware validation remain incomplete. See [reconstruction notes](RECONSTRUCTION.ar.md).

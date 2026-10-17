@@ -43,6 +43,12 @@ The project demonstrates the workflow of assembling hardware, developing small d
 
 The historical throttle sketch and sensor sketch are visible only in photographs; their complete original source files have not been recovered. The supplied `esc_bench_test.ino` is a separately prepared example, not a transcription of either sketch.
 
+## Reconstructed files
+
+The original sketches were deleted, according to the team. A new [throttle diagnostic](firmware/throttle_diagnostic/throttle_diagnostic.ino) reconstructs the photographed input-validation and command-limiting logic. It prints commands only and does not drive motors. A [sensor-output helper](firmware/sensor_output/sensor_output.h) recreates the six-label serial format; sensor initialization and acquisition still require the actual sensor model.
+
+The throttle logic passed 11 host boundary tests. The new diagnostic and output helper passed host syntax checks with simplified Arduino interfaces; actual Uno builds and hardware tests remain pending. See [reconstruction notes](docs/RECONSTRUCTION.ar.md).
+
 ## Software in this repository
 
 The [ESC bench-test example](firmware/esc_bench_test/esc_bench_test.ino) supports manual arming, selection of one motor channel, and a timed return to minimum throttle. The proposed signal pins are D3, D5, D6, and D9; confirm actual wiring before use.

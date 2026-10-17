@@ -65,3 +65,8 @@ Individual team roles are not assigned in this document because no verified task
 - [Bench-test guide](BENCH_TEST.md)
 - [Project completeness review](REVIEW.ar.md)
 - [Development roadmap](ROADMAP.md)
+
+
+## Source reconstruction update
+
+The team reports the original sketches were deleted. A new throttle diagnostic now reconstructs the visible pulse-validation logic without driving ESC outputs. A separate helper recreates the sensor print format; it does not read a sensor. Eleven host throttle boundary tests passed, along with host syntax checks for the diagnostic/helper using simplified Arduino interfaces. Original source recovery, actual Uno builds, sensor identification, and hardware validation remain incomplete. See [reconstruction notes](RECONSTRUCTION.ar.md).

@@ -43,3 +43,8 @@ The supplied bench-test example was prepared separately and uses manual serial c
 ## Evidence to collect next
 
 Record original source files, component part numbers, wiring diagram, Arduino core/library versions, and repeatable test observations. Sensor calibration, receiver loss behavior, motor rotation, and flight results each require their own documented tests.
+
+
+## Source reconstruction update
+
+The team reports the original sketches were deleted. A new throttle diagnostic now reconstructs the visible pulse-validation logic without driving ESC outputs. A separate helper recreates the sensor print format; it does not read a sensor. Eleven host throttle boundary tests passed, along with host syntax checks for the diagnostic/helper using simplified Arduino interfaces. Original source recovery, actual Uno builds, sensor identification, and hardware validation remain incomplete. See [reconstruction notes](RECONSTRUCTION.ar.md).
