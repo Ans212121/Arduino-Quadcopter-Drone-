@@ -41,6 +41,6 @@ git push -u origin main
 
 **English:** Quadcopter hardware project documenting frame assembly, wiring, and Arduino programming, with an example for ESC motor bench testing.
 
-لا تنسب للمشروع طيرانًا ذاتيًا أو ذكاءً اصطناعيًا أو نتائج أداء إلا بعد تنفيذها وتوثيقها فعليًا. إذا كان المشروع جماعيًا فأضف أسماء المشاركين وأدوارهم الصحيحة قبل النشر. لم تُضف رخصة تلقائيًا؛ اخترها بعد التأكد من ملكية العمل.
+لا تنسب للمشروع طيرانًا ذاتيًا أو ذكاءً اصطناعيًا أو نتائج أداء إلا بعد تنفيذها وتوثيقها فعليًا. المشروع مسجل باسم أنس إبراهيم المطيري وعبدالعزيز زايد المطيري لمادة Fundamentals of Robot Design. لم تُحدّد أدوار فردية لعدم توفر توزيع موثق للمهام. لم تُضف رخصة تلقائيًا؛ اخترها بعد التأكد من ملكية العمل.
 
 المصدر: https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository

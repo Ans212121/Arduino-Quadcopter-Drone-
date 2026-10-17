@@ -1,14 +1,28 @@
 # Arduino Quadcopter Drone
 
-A hands-on embedded systems project exploring quadcopter assembly, Arduino programming, ESC throttle signals, and inertial sensor data.
+A course project for **Fundamentals of Robot Design**, exploring quadcopter assembly, Arduino programming, ESC throttle signals, and inertial sensor data.
 
-**Project owner:** Anas Ibrahim Al-Mutairi  
+**Course:** Fundamentals of Robot Design
+
+| Team member | الاسم |
+| --- | --- |
+| Anas Ibrahim Al-Mutairi | أنس إبراهيم المطيري |
+| Abdulaziz Zayed Al-Mutairi | عبدالعزيز زايد المطيري |
+
+
 **Platform:** Arduino Uno · C++ · Arduino IDE  
 **Documented progress:** Hardware assembly, historical sketch compilation output, and sensor readings in Serial Monitor.
 
-[العربية](README.ar.md) · [Hardware](docs/HARDWARE.md) · [Development evidence](docs/DEVELOPMENT.md) · [Project review](docs/REVIEW.ar.md) · [Bench-test guide](docs/BENCH_TEST.md)
+[العربية](README.ar.md) · [Course project overview](docs/PROJECT_OVERVIEW.md) · [Hardware](docs/HARDWARE.md) · [Development evidence](docs/DEVELOPMENT.md) · [Project review](docs/REVIEW.ar.md) · [Bench-test guide](docs/BENCH_TEST.md)
 
 ![Quadcopter with radio transmitter](images/quadcopter-overview.jpeg)
+
+## Project objectives
+
+- Assemble a four-motor robotic platform and document its physical components.
+- Explore the relationship between an embedded controller, ESC signals, and actuators.
+- Inspect acceleration and gyroscope data during development.
+- Apply incremental testing and distinguish observed results from proposed features.
 
 ## About the project
 
@@ -60,6 +74,7 @@ Serial Monitor displays changing AcX, AcY, AcZ, GyX, GyY, and GyZ values. The im
 | Path | Contents |
 | --- | --- |
 | `firmware/esc_bench_test/` | New example for individual ESC bench tests |
+| `docs/PROJECT_OVERVIEW.md` | Course context, system structure, workflow, and evaluation criteria |
 | `docs/HARDWARE.md` | Components and proposed signal connections |
 | `docs/DEVELOPMENT.md` | Explanation of the photographed code and sensor output |
 | `docs/BENCH_TEST.md` | Setup, serial commands, and testing limitations |

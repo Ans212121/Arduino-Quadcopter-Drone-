@@ -1,6 +1,9 @@
 # Development evidence
 
-This document describes the three project photographs supplied by the project owner. Photographs record development stages; they are not substitutes for complete firmware or repeatable test logs.
+**Course:** Fundamentals of Robot Design  
+**Team:** Anas Ibrahim Al-Mutairi · Abdulaziz Zayed Al-Mutairi
+
+This document describes the three project photographs supplied for the team project. Photographs record development stages; they are not substitutes for complete firmware or repeatable test logs.
 
 ## Assembly and electronics
 
