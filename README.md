@@ -1,75 +1,107 @@
 # Arduino Quadcopter Drone
 
-An educational quadcopter hardware project documenting assembly, Arduino programming, and ESC motor-control experiments.
+A hands-on embedded systems project exploring quadcopter assembly, Arduino programming, ESC throttle signals, and inertial sensor data.
 
 **Project owner:** Anas Ibrahim Al-Mutairi  
-**Status:** Hardware assembly documented; hardware and flight performance not verified in this repository.
+**Platform:** Arduino Uno · C++ · Arduino IDE  
+**Documented progress:** Hardware assembly, historical sketch compilation output, and sensor readings in Serial Monitor.
 
-[العربية](README.ar.md) · [Hardware & wiring](docs/HARDWARE.md) · [Bench test](docs/BENCH_TEST.md) · [Development roadmap](docs/ROADMAP.md)
+[العربية](README.ar.md) · [Hardware](docs/HARDWARE.md) · [Development evidence](docs/DEVELOPMENT.md) · [Bench-test guide](docs/BENCH_TEST.md)
 
-![Quadcopter assembly](images/drone-assembly.jpeg)
+![Quadcopter with radio transmitter](images/quadcopter-overview.jpeg)
 
-## Overview
+## About the project
 
-This project brings together a four-arm drone frame, four brushless motors, electronic speed controllers (ESCs), an Arduino Uno, and a radio transmitter shown in the project photos. It documents a hands-on exploration of embedded systems and drone hardware integration.
+This educational project connects mechanical assembly with embedded programming. It documents a four-motor drone platform, central Arduino electronics, radio-control hardware, throttle-control experiments, and acceleration/gyroscope data displayed through serial diagnostics.
 
-The supplied Arduino sketch is a **new bench-test example prepared for this repository**, based on the visible pin assignments. It is not a recovered copy of the original firmware. It tests one ESC channel at a time with manual serial commands and a timed return to minimum throttle.
+The project demonstrates the workflow of assembling hardware, developing small diagnostic sketches, inspecting compiler output, and observing sensor data before advancing toward flight control.
 
-## What is documented
+## Documented work
 
-- Physical assembly and wiring experiments, supported by three original photographs.
-- Arduino IDE development; one photograph records an earlier compilation error.
-- A proposed signal-pin map: D3, D5, D6, D9.
-- An example sketch with manual arming, one-motor selection, and a two-second test limit.
-
-## What is not yet verified
-
-Exact ESC/motor/battery models, sensor configuration, receiver wiring, ESC calibration, successful hardware execution, stable flight, and autonomous flight. The example has no attitude estimation, PID stabilization, receiver decoding, or flight-control mixing. No AI capability is claimed.
-
-## Repository contents
-
-| Path | Purpose |
+| Area | Evidence in the project photos |
 | --- | --- |
-| `firmware/esc_bench_test/esc_bench_test.ino` | New ESC bench-test example |
-| `docs/HARDWARE.md` | Components, assumptions, proposed connections |
-| `docs/BENCH_TEST.md` | Setup, commands, and limitations |
-| `docs/ROADMAP.md` | Planned work and evidence checklist |
-| `docs/GITHUB_UPLOAD.ar.md` | Arabic upload instructions and profile description |
-| `images/` | Original project photographs |
+| Hardware assembly | Red-and-white quadcopter frame, four motors, propellers, and central electronics |
+| Radio hardware | FlySky-branded transmitter alongside the assembled frame |
+| Arduino integration | Board mounted on the frame with USB and jumper connections |
+| Throttle programming | Code reads a pulse and writes a constrained command to four ESC channels |
+| Historical compilation | Arduino IDE reports program and global-variable memory usage |
+| Sensor diagnostics | Serial Monitor shows acceleration and gyroscope axis values |
 
-## Quick start
+The historical throttle sketch and sensor sketch are visible only in photographs; their complete original source files have not been recovered. The supplied `esc_bench_test.ino` is a separately prepared example, not a transcription of either sketch.
 
-1. Remove **all propellers** and secure the frame. Disconnect motor power while checking wiring.
-2. Read the ESC manual and confirm the proposed pulse widths and wiring are appropriate.
-3. Install the Arduino AVR Boards package and the official Servo library if missing.
-4. Open `firmware/esc_bench_test/esc_bench_test.ino` in Arduino IDE.
-5. Choose Arduino Uno and the correct port; use Verify, then Upload with ESC power disconnected.
-6. Follow [the bench-test procedure](docs/BENCH_TEST.md). Do not use this sketch for flight.
+## Software in this repository
 
-## Project photos
+The [ESC bench-test example](firmware/esc_bench_test/esc_bench_test.ino) supports manual arming, selection of one motor channel, and a timed return to minimum throttle. The proposed signal pins are D3, D5, D6, and D9; confirm actual wiring before use.
 
-### Arduino and wiring
+The pictured throttle sketch sends the same command to all four channels. This does not establish attitude stabilization or independent flight-control mixing. Stable flight, receiver operation, calibrated sensor performance, and autonomous control are not established by these photos.
 
-![Arduino wiring](images/arduino-wiring.jpeg)
+## Development gallery
 
-### Development snapshot
+### Quadcopter overview
 
-This historical photograph records a compilation failure; it is not evidence of successful execution.
+The assembled four-arm frame with motors, propellers, central electronics, and a FlySky-branded radio transmitter.
 
-![Arduino IDE development](images/arduino-ide.jpeg)
+![Quadcopter overview](images/quadcopter-overview.jpeg)
 
-## Engineering topics
+### Workbench assembly
 
-Embedded C++, Arduino development, ESC pulse signals, hardware integration, serial diagnostics, and incremental hardware testing.
+A second view of the red-and-white airframe and transmitter during the hardware integration stage.
 
-## Verification
+![Workbench assembly](images/quadcopter-workbench.jpeg)
 
-The example received a host C++ syntax check with lightweight Arduino/Servo stubs. This does not verify the actual Arduino core, Servo library linkage, pulse timing, or hardware behavior. No physical test or flight test was performed while preparing this package. Build it in Arduino IDE before use and record actual observations separately.
+### USB development setup
+
+The Arduino board is mounted at the center of the frame and connected to a laptop by USB for development.
+
+![USB development setup](images/arduino-usb-setup.jpeg)
+
+### Controller and wiring detail
+
+A close-up of the central Arduino board, jumper wiring, indicator LEDs, and motor wiring. Exact sensor and receiver models remain to be documented.
+
+![Controller and wiring detail](images/controller-wiring-detail.jpeg)
+
+### Throttle code and build output
+
+The displayed sketch reads a throttle pulse, limits its command range, and writes the same pulse command to four ESC channels. The IDE reports 3,620 bytes of program storage and 262 bytes of global-variable memory for this historical sketch.
+
+![Throttle code and build output](images/throttle-code-build.jpeg)
+
+### Sensor readings in Serial Monitor
+
+Serial Monitor displays changing AcX, AcY, AcZ, GyX, GyY, and GyZ values. The image documents sensor-data output; units, scale, calibration, and sensor model are not established by the screenshot.
+
+![Sensor readings in Serial Monitor](images/imu-serial-readings.jpeg)
+
+## Repository guide
+
+| Path | Contents |
+| --- | --- |
+| `firmware/esc_bench_test/` | New example for individual ESC bench tests |
+| `docs/HARDWARE.md` | Components and proposed signal connections |
+| `docs/DEVELOPMENT.md` | Explanation of the photographed code and sensor output |
+| `docs/BENCH_TEST.md` | Setup, serial commands, and testing limitations |
+| `docs/ROADMAP.md` | Remaining development milestones |
+| `images/` | Six updated project photographs |
+
+## Getting started
+
+1. Remove every propeller and secure the frame before powered bench testing.
+2. Confirm ESC protocol, voltage ratings, signal range, and wiring against its manual.
+3. Open `firmware/esc_bench_test/esc_bench_test.ino` in Arduino IDE.
+4. Select Arduino Uno and the correct port; install the official Servo library if needed.
+5. Verify and upload with motor power disconnected, then follow the [bench-test procedure](docs/BENCH_TEST.md).
+
+## Validation and next steps
+
+The new bench example passed a host C++ syntax check using simplified Arduino/Servo stubs. It has not been built with the actual Arduino toolchain or physically tested during repository preparation. The historical build statistics in the gallery apply to the photographed sketch only.
+
+Next steps include recovering the original firmware, identifying component models, validating receiver and sensor behavior, and developing and testing an attitude-control system. See the [roadmap](docs/ROADMAP.md).
 
 ## References
 
 - [Official Arduino Servo library](https://docs.arduino.cc/libraries/servo/)
-- [Official Servo source and API](https://github.com/arduino-libraries/Servo)
+- [Official Servo source](https://github.com/arduino-libraries/Servo)
 - [Arduino Uno Rev3 documentation](https://docs.arduino.cc/hardware/uno-rev3/)
 
-No third-party library source is bundled. No software license is assigned in this package; choose one after confirming project ownership and any team or course requirements.
+No third-party library source is bundled. No software license has been assigned; confirm ownership and any team/course requirements before selecting one.

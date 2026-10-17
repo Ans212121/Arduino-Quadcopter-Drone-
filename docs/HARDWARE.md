@@ -8,9 +8,9 @@ This is a planning table, not a verified schematic. Photos do not establish comp
 | Four brushless motors | Visible; KV and electrical ratings unknown |
 | Arduino Uno-format board | Visible; Uno selected in the IDE |
 | Four ESC channels | Indicated by code; exact units and protocols unconfirmed |
-| Radio transmitter | Visible; model, receiver, binding, and wiring unconfirmed |
+| Radio transmitter | FlySky branding visible; exact model, receiver, binding, and wiring unconfirmed |
 | Flight battery / power distribution | Required for powered tests; ratings and topology unconfirmed |
-| IMU / flight sensors | Not positively identified; not used by supplied example |
+| IMU / flight sensors | Acceleration/gyroscope output documented in Serial Monitor; exact model and calibration unknown; not used by supplied bench example |
 
 ## Proposed signal connections
 

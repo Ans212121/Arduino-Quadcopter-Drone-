@@ -4,10 +4,12 @@ These are planned tasks, not implemented capabilities.
 
 - [ ] Identify exact frame, motor, ESC, battery, receiver, and sensor models.
 - [ ] Draw and verify an actual wiring diagram and power budget.
-- [ ] Compile with the Arduino Uno toolchain and record versions/output.
+- [x] Document historical Arduino IDE compilation output for the photographed throttle sketch.
+- [x] Document acceleration/gyroscope variables displayed in Serial Monitor.
+- [ ] Compile the separate repository bench example with the Arduino Uno toolchain and record versions/output.
 - [ ] Run propeller-free channel tests and record observations.
 - [ ] Recover and version the original project firmware if available.
-- [ ] Identify an IMU and validate calibrated sensor readings.
+- [ ] Identify the sensor model and validate calibrated readings.
 - [ ] Design and validate receiver input and signal-loss behavior.
 - [ ] Implement and evaluate attitude estimation and control on an appropriate test rig.
 - [ ] Document verified flight-controller motor ordering and rotation directions.
